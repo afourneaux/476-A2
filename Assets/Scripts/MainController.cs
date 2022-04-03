@@ -25,7 +25,7 @@ namespace Assignment2 {
                 for (int j = 0; j < arrLength; j++) {
                     float xPos = i * GRANULARITY - WORLD_BOUND;
                     float yPos = j * GRANULARITY - WORLD_BOUND;
-
+                    
                     if (!Physics.CheckSphere(new Vector3(xPos, 0, yPos), OFFSET)) {
                         Instantiate(WaypointPrefab, new Vector3(xPos, 0, yPos), Quaternion.identity, parent);
                         nodesArray[i][j] = new Node(new Vector2(xPos, yPos));
@@ -74,15 +74,6 @@ namespace Assignment2 {
                             nodesArray[i][j].Edges.Add(nodesArray[i+1][j-1].Location, DIAG_COST);
                             nodesArray[i+1][j-1].Edges.Add(nodesArray[i][j].Location, DIAG_COST);
                         }
-                    }
-                }
-            }
-            
-            for (int i = 0; i < arrLength; i++) {
-                for (int j = 0; j < arrLength; j++) {
-                    if (nodesArray[i][j] != null) {
-                        foreach (Vector2 target in nodesArray[i][j].Edges.Keys)
-                        Debug.DrawLine(To3D(nodesArray[i][j].Location), To3D(target), Color.blue, 100.0f);
                     }
                 }
             }

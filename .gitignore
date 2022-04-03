@@ -3,4 +3,5 @@
 # allow Assets and ProjectSettings
 ![Aa]ssets/
 ![Pp]roject[Ss]ettings/
+![Pp]ackages/
 !.gitignore
